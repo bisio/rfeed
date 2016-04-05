@@ -430,7 +430,7 @@ class iTunes(Extension):
 			self.categories = [iTunesCategory(self.categories)]
 
 	def get_namespace(self):
-		return {"xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
+            return {"xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd","xmlns:atom":"http://www.w3.org/2005/Atom"}
 
 	def publish(self, handler):
 		Extension.publish(self, handler)
@@ -668,6 +668,7 @@ class Feed(Host):
 
 		handler.startElement("channel", {})
 
+                self._write_element("atom:link", None, { "href": self.link, "rel":"self", "type":"application/rss+xml"})
 		self._write_element("title", self.title)
 		self._write_element("link", self.link)
 		self._write_element("description", self.description)
