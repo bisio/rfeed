@@ -428,7 +428,6 @@ class iTunesItemTestCase(BaseTestCase):
 	def test_optional_elements(self):
 		self.assertTrue(self._element('itunes:author', 'svpino') in Feed('', '', '', items = [Item(title = '', extensions = [iTunesItem(author = 'svpino')])]).rss())
 		self.assertTrue(self._element('itunes:duration', '10:11:12') in Feed('', '', '', items = [Item(title = '', extensions = [iTunesItem(duration = '10:11:12')])]).rss())
-		self.assertTrue(self._element('itunes:order', '1') in Feed('', '', '', items = [Item(title = '', extensions = [iTunesItem(order = 1)])]).rss())
 		self.assertTrue(self._element('itunes:subtitle', '123') in Feed('', '', '', items = [Item(title = '', extensions = [iTunesItem(subtitle = '123')])]).rss())
 		self.assertTrue(self._element('itunes:summary', '123') in Feed('', '', '', items = [Item(title = '', extensions = [iTunesItem(summary = '123')])]).rss())
 
